@@ -5,7 +5,6 @@ import { BadRequestException } from '@nestjs/common';
 import { CreateCulturaDto } from './dto/create-cultura.dto';
 import { v4 as uuidv4 } from 'uuid';
 
-
 describe('CulturasController', () => {
   let controller: CulturasController;
   let service: CulturasService;
@@ -37,7 +36,7 @@ describe('CulturasController', () => {
         fazendaId: uuidv4(),
         safra: 2025,
         area: 20,
-        rubro: 'Soja'
+        rubro: 'Soja',
       };
       mockService.create.mockResolvedValue(dto);
       const result = await controller.create(dto);
@@ -69,7 +68,9 @@ describe('CulturasController', () => {
     });
 
     it('deve lançar exceção se fazendaId não for fornecido', async () => {
-      await expect(controller.findByFazenda(undefined as any)).rejects.toThrow(BadRequestException);
+      await expect(controller.findByFazenda(undefined as any)).rejects.toThrow(
+        BadRequestException,
+      );
     });
   });
 
@@ -88,7 +89,7 @@ describe('CulturasController', () => {
         fazendaId: uuidv4(),
         safra: 2025,
         area: 10,
-        rubro: 'Soja'
+        rubro: 'Soja',
       };
       mockService.update.mockResolvedValue(dto);
       const result = await controller.update(dto);
@@ -112,7 +113,9 @@ describe('CulturasController', () => {
     });
 
     it('deve lançar exceção se id não for fornecido', async () => {
-      await expect(controller.remove(undefined as any)).rejects.toThrow(BadRequestException);
+      await expect(controller.remove(undefined as any)).rejects.toThrow(
+        BadRequestException,
+      );
     });
   });
 });

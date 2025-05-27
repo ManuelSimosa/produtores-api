@@ -8,7 +8,9 @@ import { BadRequestException } from '@nestjs/common';
 
 import { ObjectLiteral } from 'typeorm';
 
-type MockRepo<T extends ObjectLiteral = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
+type MockRepo<T extends ObjectLiteral = any> = Partial<
+  Record<keyof Repository<T>, jest.Mock>
+>;
 
 describe('CulturasService', () => {
   let service: CulturasService;
@@ -50,37 +52,51 @@ describe('CulturasService', () => {
     it('deve lançar exceção se a fazenda não existir', async () => {
       fazendaRepo.findOne!.mockResolvedValue(null);
 
-      await expect(service.create({
-        fazendaId: '1',
-        area: 10,
-        safra: 2024,
-      })).rejects.toThrow(BadRequestException);
+      await expect(
+        service.create({
+          fazendaId: '1',
+          area: 10,
+          safra: 2024,
+        }),
+      ).rejects.toThrow(BadRequestException);
     });
 
     it('deve lançar exceção se a área não for informada', async () => {
-      fazendaRepo.findOne!.mockResolvedValue({ id: '1', areaTotal: 100, culturas: [] });
+      fazendaRepo.findOne!.mockResolvedValue({
+        id: '1',
+        areaTotal: 100,
+        culturas: [],
+      });
       culturaRepo.find?.mockResolvedValue([]);
 
-      await expect(service.create({
-        fazendaId: '1',
-        safra: 2025,
-        // area não informado
-      })).rejects.toThrow('Área da cultura deve ser informada');
+      await expect(
+        service.create({
+          fazendaId: '1',
+          safra: 2025,
+          // area não informado
+        }),
+      ).rejects.toThrow('Área da cultura deve ser informada');
     });
 
     it('deve lançar exceção se área da cultura exceder o total disponível na safra', async () => {
-      fazendaRepo.findOne!.mockResolvedValue({ id: '1', areaTotal: 100, culturas: [] });
+      fazendaRepo.findOne!.mockResolvedValue({
+        id: '1',
+        areaTotal: 100,
+        culturas: [],
+      });
 
       culturaRepo.find?.mockResolvedValue([
         { area: 60, safra: 2025, fazendaId: '1' },
         { area: 30, safra: 2025, fazendaId: '1' },
       ]);
 
-      await expect(service.create({
-        fazendaId: '1',
-        safra: 2025,
-        area: 20,
-      })).rejects.toThrow('Área total da fazenda (100) excedida');
+      await expect(
+        service.create({
+          fazendaId: '1',
+          safra: 2025,
+          area: 20,
+        }),
+      ).rejects.toThrow('Área total da fazenda (100) excedida');
     });
 
     it('deve criar cultura com sucesso', async () => {
@@ -124,7 +140,9 @@ describe('CulturasService', () => {
     culturaRepo.find?.mockResolvedValue(mock);
 
     const result = await service.findByFazendaId('f1');
-    expect(culturaRepo.find).toHaveBeenCalledWith({ where: { fazenda: { id: 'f1' } } });
+    expect(culturaRepo.find).toHaveBeenCalledWith({
+      where: { fazenda: { id: 'f1' } },
+    });
     expect(result).toEqual(mock);
   });
 

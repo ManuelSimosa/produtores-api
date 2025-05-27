@@ -15,7 +15,7 @@ export class Cultura {
   @Column()
   fazendaId: string;
 
-  @ManyToOne(() => Fazenda, fazenda => fazenda.culturas, { eager: false })
+  @ManyToOne(() => Fazenda, (fazenda) => fazenda.culturas, { eager: false })
   @JoinColumn({ name: 'fazendaId' })
   fazenda: Fazenda;
 

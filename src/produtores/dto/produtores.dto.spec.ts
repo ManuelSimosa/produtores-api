@@ -53,7 +53,9 @@ describe('produtorSchema DTO', () => {
     });
 
     expect(result.error).toBeDefined();
-    expect(result.error?.details[0].message).toBe('O nome do produtor é obrigatório');
+    expect(result.error?.details[0].message).toBe(
+      'O nome do produtor é obrigatório',
+    );
   });
 
   it('deve rejeitar se campos estiverem ausentes', () => {

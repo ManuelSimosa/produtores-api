@@ -105,7 +105,6 @@ describe('FazendasService', () => {
     expect(result).toBe(100);
   });
 
-
   it('countFazendasByEstado() should return grouped count', async () => {
     const data = [{ estado: 'SC', count: 2 }];
     mockFazendaRepo.createQueryBuilder().getRawMany.mockResolvedValue(data);
@@ -128,6 +127,8 @@ describe('FazendasService', () => {
   it('getUsoDoSoloDistribuicao() should throw if fazenda not found', async () => {
     mockFazendaRepo.findOneBy.mockResolvedValue(null);
 
-    await expect(service.getUsoDoSoloDistribuicao('not-found')).rejects.toThrow(NotFoundException);
+    await expect(service.getUsoDoSoloDistribuicao('not-found')).rejects.toThrow(
+      NotFoundException,
+    );
   });
 });

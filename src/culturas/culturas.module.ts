@@ -11,4 +11,4 @@ import { Fazenda } from '../fazendas/fazendas.entity';
   controllers: [CulturasController],
   exports: [CulturasService],
 })
-export class CulturasModule { }
+export class CulturasModule {}

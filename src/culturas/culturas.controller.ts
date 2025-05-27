@@ -7,12 +7,18 @@ import {
   Put,
   Query,
   Param,
-  BadRequestException
+  BadRequestException,
 } from '@nestjs/common';
 import { CulturasService } from './culturas.service';
 import { culturaSchema } from './dto/culturas.dto';
 import { CreateCulturaDto } from './dto/create-cultura.dto';
-import { ApiTags, ApiBody, ApiQuery, ApiParam, ApiOperation } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiBody,
+  ApiQuery,
+  ApiParam,
+  ApiOperation,
+} from '@nestjs/swagger';
 
 @ApiTags('Culturas')
 @Controller('culturas')
@@ -45,7 +51,9 @@ export class CulturasController {
   }
 
   @Get('/count-by-rubro')
-  @ApiOperation({ summary: 'Retorna o mapeamento de culturas plantadas (Gráfico de pizza)' })
+  @ApiOperation({
+    summary: 'Retorna o mapeamento de culturas plantadas (Gráfico de pizza)',
+  })
   async countByRubro() {
     const data = await this.service.countCulturasByRubro();
     return data;
@@ -62,7 +70,11 @@ export class CulturasController {
 
   @Delete(':id')
   @ApiOperation({ summary: 'Remover uma cultura' })
-  @ApiParam({ name: 'id', required: true, description: 'ID da cultura a ser removida' })
+  @ApiParam({
+    name: 'id',
+    required: true,
+    description: 'ID da cultura a ser removida',
+  })
   async remove(@Param('id') id: string) {
     if (!id) {
       throw new BadRequestException('O parâmetro id é obrigatório.');

@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Fazenda } from './fazendas.entity';
@@ -8,7 +12,7 @@ export class FazendasService {
   constructor(
     @InjectRepository(Fazenda)
     private readonly repo: Repository<Fazenda>,
-  ) { }
+  ) {}
 
   create(data: Partial<Fazenda>) {
     return this.repo.save(data);
@@ -68,5 +72,4 @@ export class FazendasService {
       { tipo: 'Vegetação', area: fazenda.areaVegetacao },
     ];
   }
-
 }

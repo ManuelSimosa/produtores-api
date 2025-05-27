@@ -6,7 +6,7 @@ import {
   Post,
   Put,
   BadRequestException,
-  Param
+  Param,
 } from '@nestjs/common';
 import { FazendasService } from './fazendas.service';
 import { fazendaSchema } from './dto/fazendas.dto';
@@ -16,7 +16,7 @@ import { ApiTags, ApiOperation, ApiBody, ApiResponse } from '@nestjs/swagger';
 @ApiTags('Fazendas')
 @Controller('fazendas')
 export class FazendasController {
-  constructor(private readonly service: FazendasService) { }
+  constructor(private readonly service: FazendasService) {}
 
   @Post()
   @ApiOperation({ summary: 'Criar uma nova fazenda' })
@@ -26,7 +26,9 @@ export class FazendasController {
     const { error } = fazendaSchema.validate(body);
     if (error) throw new BadRequestException(error.message);
     if (body.areaAgricultavel + body.areaVegetacao !== body.areaTotal) {
-      throw new BadRequestException('La suma de área agricultable y vegetación debe ser igual al área total');
+      throw new BadRequestException(
+        'La suma de área agricultable y vegetación debe ser igual al área total',
+      );
     }
 
     return this.service.create(body);
@@ -51,14 +53,19 @@ export class FazendasController {
   }
 
   @Get('/count-by-estado')
-  @ApiOperation({ summary: 'Retorna o mapeamento de fazenda por estados (Gráfico de pizza)' })
+  @ApiOperation({
+    summary: 'Retorna o mapeamento de fazenda por estados (Gráfico de pizza)',
+  })
   async countByEstado() {
     const data = await this.service.countFazendasByEstado();
     return data;
   }
 
   @Get(':id/uso-do-solo')
-    @ApiOperation({ summary: 'Retorna a quantidade de area de tipo de solo por fazenda (Gráfico de pizza)' })
+  @ApiOperation({
+    summary:
+      'Retorna a quantidade de area de tipo de solo por fazenda (Gráfico de pizza)',
+  })
   async usoDoSolo(@Param('id') id: string) {
     return this.service.getUsoDoSoloDistribuicao(id);
   }

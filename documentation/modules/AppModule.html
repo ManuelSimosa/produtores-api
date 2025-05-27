@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>produtores-api documentation</title>
+        <title>Produtores API Docs</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,7 +64,7 @@
 
         <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
                <div class="d-flex">
-                    <a href="../" class="navbar-brand">produtores-api documentation</a>
+                    <a href="../" class="navbar-brand">Produtores API Docs</a>
                     <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
                </div>
         </div>
@@ -237,25 +237,28 @@ import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
 import { ProdutoresModule } from &#x27;./produtores/produtores.module&#x27;;
 import { FazendasModule } from &#x27;./fazendas/fazendas.module&#x27;;
 import { CulturasModule } from &#x27;./culturas/culturas.module&#x27;;
+import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: &#x27;postgres&#x27;,
-      host: &#x27;localhost&#x27;,
-      port: 5432,
-      username: &#x27;postgres&#x27;,
-      password: &#x27;password&#x27;,
-      database: &#x27;postgres&#x27;,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT ?? &#x27;5432&#x27;, 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       autoLoadEntities: true,
       synchronize: true,
     }),
     ProdutoresModule,
     FazendasModule,
     CulturasModule,
-  ]
+  ],
 })
 export class AppModule {}
+
 </code></pre>
     </div>
 </div>

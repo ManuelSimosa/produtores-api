@@ -83,7 +83,9 @@ describe('FazendasController', () => {
         produtorId: uuidv4(),
       };
 
-      await expect(controller.create(dto as any)).rejects.toThrow(BadRequestException);
+      await expect(controller.create(dto as any)).rejects.toThrow(
+        BadRequestException,
+      );
     });
 
     it('deve lançar erro se áreas forem string em vez de número', async () => {
@@ -91,15 +93,16 @@ describe('FazendasController', () => {
         nome: 'Fazenda Tipos Errados',
         estado: 'SC',
         cidade: 'Chapecó',
-        areaTotal: '100', 
-        areaAgricultavel: '60', 
-        areaVegetacao: '40', 
+        areaTotal: '100',
+        areaAgricultavel: '60',
+        areaVegetacao: '40',
         produtorId: uuidv4(),
       };
 
-      await expect(controller.create(dto as any)).rejects.toThrow(BadRequestException);
+      await expect(controller.create(dto as any)).rejects.toThrow(
+        BadRequestException,
+      );
     });
-
   });
 
   it('findAll() deve retornar todas as fazendas', async () => {
@@ -191,9 +194,10 @@ describe('FazendasController', () => {
         produtorId: uuidv4(),
       };
 
-      await expect(controller.update(dto as any)).rejects.toThrow(BadRequestException);
+      await expect(controller.update(dto as any)).rejects.toThrow(
+        BadRequestException,
+      );
     });
-
   });
 
   describe('remove()', () => {
@@ -206,7 +210,9 @@ describe('FazendasController', () => {
 
     it('deve lançar erro se id não for informado', async () => {
       // @ts-expect-error simular ausência do campo
-      await expect(controller.remove(undefined)).rejects.toThrow(BadRequestException);
+      await expect(controller.remove(undefined)).rejects.toThrow(
+        BadRequestException,
+      );
     });
 
     it('deve lançar erro se id estiver vazio (string vazia)', async () => {

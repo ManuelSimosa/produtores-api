@@ -15,7 +15,7 @@ import { CreateProdutorDto } from './dto/create-produtor.dto';
 @ApiTags('produtores')
 @Controller('produtores')
 export class ProdutoresController {
-  constructor(private readonly service: ProdutoresService) { }
+  constructor(private readonly service: ProdutoresService) {}
 
   @Post()
   @ApiOperation({ summary: 'Criar um novo produtor' })

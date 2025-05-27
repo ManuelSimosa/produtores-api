@@ -8,12 +8,16 @@ export class ProdutoresService {
   constructor(
     @InjectRepository(Produtor)
     private readonly repo: Repository<Produtor>,
-  ) { }
+  ) {}
 
   async create(data: Partial<Produtor>) {
-    const existe = await this.repo.findOne({ where: { identidade: data.identidade } });
+    const existe = await this.repo.findOne({
+      where: { identidade: data.identidade },
+    });
     if (existe) {
-      throw new BadRequestException('CPF/CNPJ já está cadastrado para outro produtor.');
+      throw new BadRequestException(
+        'CPF/CNPJ já está cadastrado para outro produtor.',
+      );
     }
     return this.repo.save(data);
   }

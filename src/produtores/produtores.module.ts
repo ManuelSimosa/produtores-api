@@ -8,6 +8,6 @@ import { ProdutoresController } from './produtores.controller';
   imports: [TypeOrmModule.forFeature([Produtor])],
   providers: [ProdutoresService],
   controllers: [ProdutoresController],
-  exports: [ProdutoresService,TypeOrmModule],
+  exports: [ProdutoresService, TypeOrmModule],
 })
 export class ProdutoresModule {}

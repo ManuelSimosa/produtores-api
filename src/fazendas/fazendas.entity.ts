@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+} from 'typeorm';
 import { Produtor } from '../produtores/produtores.entity';
 import { Cultura } from '../culturas/culturas.entity';
 
@@ -32,6 +39,6 @@ export class Fazenda {
   @Column()
   areaVegetacao: number;
 
-  @OneToMany(() => Cultura, cultura => cultura.fazenda)
+  @OneToMany(() => Cultura, (cultura) => cultura.fazenda)
   culturas: Cultura[];
 }

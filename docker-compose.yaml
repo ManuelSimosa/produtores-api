@@ -1,36 +1,45 @@
-version: '3.9'
-
 services:
   db:
     image: postgres:15
+    container_name: produtores-db
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
-    volumes:
-      - db_data:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - net
 
   api:
+    container_name: produtores-api
     build: .
+    env_file:
+      - .env
+    ports:
+      - "${PORT:-3000}:3000"
     depends_on:
       - db
-    ports:
-      - '3000:3000'
-    environment:
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_USER: postgres
-      DATABASE_PASSWORD: password
-      DATABASE_NAME: postgres
+    networks:
+      - net
 
   docs:
-    build:
-      context: .
-      dockerfile: Dockerfile.compodoc
+    container_name: produtores-docs
+    image: node:20
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install -g @compodoc/compodoc && compodoc -p tsconfig.json -s -n 'Produtores API Docs' -w"
     ports:
-      - '8080:8080'
+      - "6006:6006"
+    networks:
+      - net
 
 volumes:
-  db_data:
+  pgdata:
+
+networks:
+  net:

@@ -14,7 +14,6 @@ describe('ProdutoresController', () => {
     nomeProdutor: exemploNome,
   };
 
-
   const serviceMock = {
     create: jest.fn(),
     findAll: jest.fn(),
@@ -55,7 +54,9 @@ describe('ProdutoresController', () => {
       // Pass an invalid object missing required fields
       const invalidData = { identidade: '', nomeProdutor: '' };
 
-      await expect(controller.create(invalidData)).rejects.toThrow(BadRequestException);
+      await expect(controller.create(invalidData)).rejects.toThrow(
+        BadRequestException,
+      );
       expect(service.create).not.toHaveBeenCalled();
     });
   });
@@ -84,7 +85,9 @@ describe('ProdutoresController', () => {
     it('debería lanzar BadRequestException para datos inválidos', async () => {
       const invalidData = { identidade: '', nomeProdutor: '' };
 
-      await expect(controller.update(invalidData)).rejects.toThrow(BadRequestException);
+      await expect(controller.update(invalidData)).rejects.toThrow(
+        BadRequestException,
+      );
       expect(service.update).not.toHaveBeenCalled();
     });
   });

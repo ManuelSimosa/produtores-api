@@ -9,7 +9,12 @@ function generateValidCnpj() {
 }
 
 function generateRandomName() {
-  const names = ['João da Silva', 'Maria Oliveira', 'Carlos Souza', 'Ana Pereira'];
+  const names = [
+    'João da Silva',
+    'Maria Oliveira',
+    'Carlos Souza',
+    'Ana Pereira',
+  ];
   return names[Math.floor(Math.random() * names.length)];
 }
 

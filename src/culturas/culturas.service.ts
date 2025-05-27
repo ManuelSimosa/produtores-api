@@ -12,7 +12,7 @@ export class CulturasService {
 
     @InjectRepository(Fazenda)
     private fazendaRepository: Repository<Fazenda>,
-  ) { }
+  ) {}
 
   async create(data: Partial<Cultura>) {
     const fazenda = await this.fazendaRepository.findOne({
@@ -29,7 +29,7 @@ export class CulturasService {
     });
 
     const areaOcupadaNaSafra = culturasExistentes
-      .filter(c => c.fazendaId === data.fazendaId && c.safra === data.safra)
+      .filter((c) => c.fazendaId === data.fazendaId && c.safra === data.safra)
       .reduce((total, c) => total + c.area, 0);
 
     if (typeof data.area !== 'number') {
@@ -55,7 +55,9 @@ export class CulturasService {
   }
 
   findByFazendaId(fazendaId: string) {
-    return this.culturaRepository.find({ where: { fazenda: { id: fazendaId } } });
+    return this.culturaRepository.find({
+      where: { fazenda: { id: fazendaId } },
+    });
   }
 
   update(data: Partial<Cultura>) {
@@ -75,5 +77,4 @@ export class CulturasService {
       .groupBy('cultura.rubro')
       .getRawMany();
   }
-
 }

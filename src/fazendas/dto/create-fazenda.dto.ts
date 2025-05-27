@@ -4,7 +4,10 @@ export class CreateFazendaDto {
   @ApiProperty({ example: 'uuid-do-produtor', description: 'ID do produtor' })
   produtorId: string;
 
-  @ApiProperty({ example: 'Fazenda Boa Esperança', description: 'Nome da fazenda' })
+  @ApiProperty({
+    example: 'Fazenda Boa Esperança',
+    description: 'Nome da fazenda',
+  })
   nome: string;
 
   @ApiProperty({ example: 'Chapecó', description: 'Cidade da fazenda' })
@@ -13,7 +16,10 @@ export class CreateFazendaDto {
   @ApiProperty({ example: 'SC', description: 'Estado (UF)' })
   estado: string;
 
-  @ApiProperty({ example: 100, description: 'Área total da fazenda em hectares' })
+  @ApiProperty({
+    example: 100,
+    description: 'Área total da fazenda em hectares',
+  })
   areaTotal: number;
 
   @ApiProperty({ example: 50, description: 'Área que pode ser semeada' })

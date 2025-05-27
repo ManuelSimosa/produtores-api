@@ -1,7 +1,6 @@
 import * as Joi from '@hapi/joi';
 import { cpf, cnpj } from 'cpf-cnpj-validator';
 
-
 export const produtorSchema = Joi.object({
   identidade: Joi.string()
     .required()

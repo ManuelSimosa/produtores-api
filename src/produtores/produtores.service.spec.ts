@@ -48,7 +48,9 @@ describe('ProdutoresService', () => {
 
       const result = await service.create(produtorMock);
 
-      expect(mockRepo.findOne).toHaveBeenCalledWith({ where: { identidade: produtorMock.identidade } });
+      expect(mockRepo.findOne).toHaveBeenCalledWith({
+        where: { identidade: produtorMock.identidade },
+      });
       expect(mockRepo.save).toHaveBeenCalledWith(produtorMock);
       expect(result).toEqual(produtorMock);
     });
@@ -56,8 +58,12 @@ describe('ProdutoresService', () => {
     it('debería lanzar BadRequestException si el CPF/CNPJ ya existe', async () => {
       mockRepo.findOne.mockResolvedValue(produtorMock);
 
-      await expect(service.create(produtorMock)).rejects.toThrow(BadRequestException);
-      expect(mockRepo.findOne).toHaveBeenCalledWith({ where: { identidade: produtorMock.identidade } });
+      await expect(service.create(produtorMock)).rejects.toThrow(
+        BadRequestException,
+      );
+      expect(mockRepo.findOne).toHaveBeenCalledWith({
+        where: { identidade: produtorMock.identidade },
+      });
       expect(mockRepo.save).not.toHaveBeenCalled();
     });
   });
