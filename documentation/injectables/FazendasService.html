@@ -188,7 +188,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/fazendas/fazendas.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/fazendas/fazendas.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -253,8 +253,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -292,8 +292,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -329,8 +329,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -396,8 +396,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="21"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -435,8 +435,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -474,8 +474,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -543,8 +543,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -612,8 +612,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/fazendas/fazendas.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/fazendas/fazendas.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -665,7 +665,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException, BadRequestException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
 import { Fazenda } from &#x27;./fazendas.entity&#x27;;
@@ -675,7 +679,7 @@ export class FazendasService {
   constructor(
     @InjectRepository(Fazenda)
     private readonly repo: Repository&lt;Fazenda&gt;,
-  ) { }
+  ) {}
 
   create(data: Partial&lt;Fazenda&gt;) {
     return this.repo.save(data);
@@ -735,7 +739,6 @@ export class FazendasService {
       { tipo: &#x27;Vegetação&#x27;, area: fazenda.areaVegetacao },
     ];
   }
-
 }
 </code></pre>
     </div>

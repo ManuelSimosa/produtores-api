@@ -203,7 +203,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -239,7 +239,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -275,7 +275,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -311,7 +311,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/culturas/dto/create-cultura.dto.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -333,13 +333,19 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export class CreateCulturaDto {
-  @ApiProperty({ example: &#x27;uuid-da-fazenda&#x27;, description: &#x27;ID da fazenda relacionada&#x27; })
+  @ApiProperty({
+    example: &#x27;uuid-da-fazenda&#x27;,
+    description: &#x27;ID da fazenda relacionada&#x27;,
+  })
   fazendaId: string;
 
   @ApiProperty({ example: &#x27;Soja&#x27;, description: &#x27;Nome do rubro cultivado&#x27; })
   rubro: string;
 
-  @ApiProperty({ example: 50, description: &#x27;Área utilizada para a cultura (em hectares)&#x27; })
+  @ApiProperty({
+    example: 50,
+    description: &#x27;Área utilizada para a cultura (em hectares)&#x27;,
+  })
   area: number;
 
   @ApiProperty({ example: 2024, description: &#x27;Ano da safra&#x27; })

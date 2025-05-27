@@ -304,8 +304,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/produtores/produtores.service.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/produtores/produtores.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -343,8 +343,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="29"
-                                    class="link-to-prism">src/produtores/produtores.service.ts:29</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/produtores/produtores.service.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -410,8 +410,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/produtores/produtores.service.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/produtores/produtores.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -473,12 +473,16 @@ export class ProdutoresService {
   constructor(
     @InjectRepository(Produtor)
     private readonly repo: Repository&lt;Produtor&gt;,
-  ) { }
+  ) {}
 
   async create(data: Partial&lt;Produtor&gt;) {
-    const existe &#x3D; await this.repo.findOne({ where: { identidade: data.identidade } });
+    const existe &#x3D; await this.repo.findOne({
+      where: { identidade: data.identidade },
+    });
     if (existe) {
-      throw new BadRequestException(&#x27;CPF/CNPJ já está cadastrado para outro produtor.&#x27;);
+      throw new BadRequestException(
+        &#x27;CPF/CNPJ já está cadastrado para outro produtor.&#x27;,
+      );
     }
     return this.repo.save(data);
   }

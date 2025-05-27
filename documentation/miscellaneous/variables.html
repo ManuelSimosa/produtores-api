@@ -152,44 +152,29 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>Joi.object({
-  fazendaId: Joi.string()
-    .uuid({ version: &#x27;uuidv4&#x27; })
-    .required()
-    .messages({
-      &#x27;string.empty&#x27;: &#x27;O campo fazendaId é obrigatório.&#x27;,
-      &#x27;string.uuid&#x27;: &#x27;O fazendaId deve ser um UUID válido.&#x27;,
-    }),
+  fazendaId: Joi.string().uuid({ version: &#x27;uuidv4&#x27; }).required().messages({
+    &#x27;string.empty&#x27;: &#x27;O campo fazendaId é obrigatório.&#x27;,
+    &#x27;string.uuid&#x27;: &#x27;O fazendaId deve ser um UUID válido.&#x27;,
+  }),
 
-  rubro: Joi.string()
-    .trim()
-    .min(2)
-    .required()
-    .messages({
-      &#x27;string.empty&#x27;: &#x27;O campo rubro é obrigatório.&#x27;,
-      &#x27;string.min&#x27;: &#x27;O rubro deve ter no mínimo 2 caracteres.&#x27;,
-    }),
+  rubro: Joi.string().trim().min(2).required().messages({
+    &#x27;string.empty&#x27;: &#x27;O campo rubro é obrigatório.&#x27;,
+    &#x27;string.min&#x27;: &#x27;O rubro deve ter no mínimo 2 caracteres.&#x27;,
+  }),
 
-  area: Joi.number()
-    .positive()
-    .required()
-    .messages({
-      &#x27;number.base&#x27;: &#x27;A área deve ser um número.&#x27;,
-      &#x27;number.positive&#x27;: &#x27;A área deve ser um número positivo.&#x27;,
-      &#x27;any.required&#x27;: &#x27;O campo área é obrigatório.&#x27;,
-    }),
+  area: Joi.number().positive().required().messages({
+    &#x27;number.base&#x27;: &#x27;A área deve ser um número.&#x27;,
+    &#x27;number.positive&#x27;: &#x27;A área deve ser um número positivo.&#x27;,
+    &#x27;any.required&#x27;: &#x27;O campo área é obrigatório.&#x27;,
+  }),
 
-  safra: Joi.number()
-    .integer()
-    .min(1900)
-    .max(2100)
-    .required()
-    .messages({
-      &#x27;number.base&#x27;: &#x27;A safra deve ser um número.&#x27;,
-      &#x27;number.integer&#x27;: &#x27;A safra deve ser um número inteiro.&#x27;,
-      &#x27;number.min&#x27;: &#x27;A safra deve ser maior ou igual a 1900.&#x27;,
-      &#x27;number.max&#x27;: &#x27;A safra deve ser menor ou igual a 2100.&#x27;,
-      &#x27;any.required&#x27;: &#x27;O campo safra é obrigatório.&#x27;,
-    }),
+  safra: Joi.number().integer().min(1900).max(2100).required().messages({
+    &#x27;number.base&#x27;: &#x27;A safra deve ser um número.&#x27;,
+    &#x27;number.integer&#x27;: &#x27;A safra deve ser um número inteiro.&#x27;,
+    &#x27;number.min&#x27;: &#x27;A safra deve ser maior ou igual a 1900.&#x27;,
+    &#x27;number.max&#x27;: &#x27;A safra deve ser menor ou igual a 2100.&#x27;,
+    &#x27;any.required&#x27;: &#x27;O campo safra é obrigatório.&#x27;,
+  }),
 })</code>
                     </td>
                 </tr>

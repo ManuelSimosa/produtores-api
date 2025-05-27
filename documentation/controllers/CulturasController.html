@@ -228,8 +228,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -277,8 +277,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -355,8 +355,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -404,8 +404,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -483,8 +483,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:78</a></div>
                         </td>
                     </tr>
 
@@ -562,8 +562,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/culturas/culturas.controller.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/culturas/culturas.controller.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -622,12 +622,18 @@
   Put,
   Query,
   Param,
-  BadRequestException
+  BadRequestException,
 } from &#x27;@nestjs/common&#x27;;
 import { CulturasService } from &#x27;./culturas.service&#x27;;
 import { culturaSchema } from &#x27;./dto/culturas.dto&#x27;;
 import { CreateCulturaDto } from &#x27;./dto/create-cultura.dto&#x27;;
-import { ApiTags, ApiBody, ApiQuery, ApiParam, ApiOperation } from &#x27;@nestjs/swagger&#x27;;
+import {
+  ApiTags,
+  ApiBody,
+  ApiQuery,
+  ApiParam,
+  ApiOperation,
+} from &#x27;@nestjs/swagger&#x27;;
 
 @ApiTags(&#x27;Culturas&#x27;)
 @Controller(&#x27;culturas&#x27;)
@@ -660,7 +666,9 @@ export class CulturasController {
   }
 
   @Get(&#x27;/count-by-rubro&#x27;)
-  @ApiOperation({ summary: &#x27;Retorna o mapeamento de culturas plantadas (Gráfico de pizza)&#x27; })
+  @ApiOperation({
+    summary: &#x27;Retorna o mapeamento de culturas plantadas (Gráfico de pizza)&#x27;,
+  })
   async countByRubro() {
     const data &#x3D; await this.service.countCulturasByRubro();
     return data;
@@ -677,7 +685,11 @@ export class CulturasController {
 
   @Delete(&#x27;:id&#x27;)
   @ApiOperation({ summary: &#x27;Remover uma cultura&#x27; })
-  @ApiParam({ name: &#x27;id&#x27;, required: true, description: &#x27;ID da cultura a ser removida&#x27; })
+  @ApiParam({
+    name: &#x27;id&#x27;,
+    required: true,
+    description: &#x27;ID da cultura a ser removida&#x27;,
+  })
   async remove(@Param(&#x27;id&#x27;) id: string) {
     if (!id) {
       throw new BadRequestException(&#x27;O parâmetro id é obrigatório.&#x27;);

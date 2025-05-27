@@ -34,7 +34,7 @@ services:
       - .:/app
     command: sh -c "npm install -g @compodoc/compodoc && compodoc -p tsconfig.json -s -n 'Produtores API Docs' -w"
     ports:
-      - "6006:6006"
+      - "8080:8080"
     networks:
       - net
 

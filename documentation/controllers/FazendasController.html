@@ -238,8 +238,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -286,8 +286,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="55"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:55</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -413,8 +413,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -461,8 +461,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -509,8 +509,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="77"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:77</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:84</a></div>
                         </td>
                     </tr>
 
@@ -588,8 +588,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="69"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:69</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:76</a></div>
                         </td>
                     </tr>
 
@@ -666,8 +666,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="62"
-                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:62</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/fazendas/fazendas.controller.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -725,7 +725,7 @@
   Post,
   Put,
   BadRequestException,
-  Param
+  Param,
 } from &#x27;@nestjs/common&#x27;;
 import { FazendasService } from &#x27;./fazendas.service&#x27;;
 import { fazendaSchema } from &#x27;./dto/fazendas.dto&#x27;;
@@ -735,7 +735,7 @@ import { ApiTags, ApiOperation, ApiBody, ApiResponse } from &#x27;@nestjs/swagge
 @ApiTags(&#x27;Fazendas&#x27;)
 @Controller(&#x27;fazendas&#x27;)
 export class FazendasController {
-  constructor(private readonly service: FazendasService) { }
+  constructor(private readonly service: FazendasService) {}
 
   @Post()
   @ApiOperation({ summary: &#x27;Criar uma nova fazenda&#x27; })
@@ -745,7 +745,9 @@ export class FazendasController {
     const { error } &#x3D; fazendaSchema.validate(body);
     if (error) throw new BadRequestException(error.message);
     if (body.areaAgricultavel + body.areaVegetacao !&#x3D;&#x3D; body.areaTotal) {
-      throw new BadRequestException(&#x27;La suma de área agricultable y vegetación debe ser igual al área total&#x27;);
+      throw new BadRequestException(
+        &#x27;La suma de área agricultable y vegetación debe ser igual al área total&#x27;,
+      );
     }
 
     return this.service.create(body);
@@ -770,14 +772,19 @@ export class FazendasController {
   }
 
   @Get(&#x27;/count-by-estado&#x27;)
-  @ApiOperation({ summary: &#x27;Retorna o mapeamento de fazenda por estados (Gráfico de pizza)&#x27; })
+  @ApiOperation({
+    summary: &#x27;Retorna o mapeamento de fazenda por estados (Gráfico de pizza)&#x27;,
+  })
   async countByEstado() {
     const data &#x3D; await this.service.countFazendasByEstado();
     return data;
   }
 
   @Get(&#x27;:id/uso-do-solo&#x27;)
-    @ApiOperation({ summary: &#x27;Retorna a quantidade de area de tipo de solo por fazenda (Gráfico de pizza)&#x27; })
+  @ApiOperation({
+    summary:
+      &#x27;Retorna a quantidade de area de tipo de solo por fazenda (Gráfico de pizza)&#x27;,
+  })
   async usoDoSolo(@Param(&#x27;id&#x27;) id: string) {
     return this.service.getUsoDoSoloDistribuicao(id);
   }

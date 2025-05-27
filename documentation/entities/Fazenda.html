@@ -219,7 +219,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/fazendas/fazendas.entity.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/fazendas/fazendas.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -255,7 +255,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/fazendas/fazendas.entity.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/fazendas/fazendas.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -291,7 +291,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/fazendas/fazendas.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/fazendas/fazendas.entity.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -327,7 +327,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/fazendas/fazendas.entity.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/fazendas/fazendas.entity.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -363,7 +363,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/fazendas/fazendas.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/fazendas/fazendas.entity.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -399,7 +399,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/fazendas/fazendas.entity.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/fazendas/fazendas.entity.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -435,7 +435,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/fazendas/fazendas.entity.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/fazendas/fazendas.entity.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -471,7 +471,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/fazendas/fazendas.entity.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/fazendas/fazendas.entity.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -508,7 +508,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/fazendas/fazendas.entity.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/fazendas/fazendas.entity.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -544,7 +544,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/fazendas/fazendas.entity.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/fazendas/fazendas.entity.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -556,7 +556,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, ManyToOne, OneToMany } from &#x27;typeorm&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+} from &#x27;typeorm&#x27;;
 import { Produtor } from &#x27;../produtores/produtores.entity&#x27;;
 import { Cultura } from &#x27;../culturas/culturas.entity&#x27;;
 
@@ -590,7 +597,7 @@ export class Fazenda {
   @Column()
   areaVegetacao: number;
 
-  @OneToMany(() &#x3D;&gt; Cultura, cultura &#x3D;&gt; cultura.fazenda)
+  @OneToMany(() &#x3D;&gt; Cultura, (cultura) &#x3D;&gt; cultura.fazenda)
   culturas: Cultura[];
 }
 </code></pre>

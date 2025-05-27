@@ -215,7 +215,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -251,7 +251,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -287,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -323,7 +323,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -359,7 +359,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -395,7 +395,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/fazendas/dto/create-fazenda.dto.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -456,7 +456,10 @@ export class CreateFazendaDto {
   @ApiProperty({ example: &#x27;uuid-do-produtor&#x27;, description: &#x27;ID do produtor&#x27; })
   produtorId: string;
 
-  @ApiProperty({ example: &#x27;Fazenda Boa Esperança&#x27;, description: &#x27;Nome da fazenda&#x27; })
+  @ApiProperty({
+    example: &#x27;Fazenda Boa Esperança&#x27;,
+    description: &#x27;Nome da fazenda&#x27;,
+  })
   nome: string;
 
   @ApiProperty({ example: &#x27;Chapecó&#x27;, description: &#x27;Cidade da fazenda&#x27; })
@@ -465,7 +468,10 @@ export class CreateFazendaDto {
   @ApiProperty({ example: &#x27;SC&#x27;, description: &#x27;Estado (UF)&#x27; })
   estado: string;
 
-  @ApiProperty({ example: 100, description: &#x27;Área total da fazenda em hectares&#x27; })
+  @ApiProperty({
+    example: 100,
+    description: &#x27;Área total da fazenda em hectares&#x27;,
+  })
   areaTotal: number;
 
   @ApiProperty({ example: 50, description: &#x27;Área que pode ser semeada&#x27; })

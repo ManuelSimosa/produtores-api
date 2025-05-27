@@ -256,8 +256,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="70"
-                                    class="link-to-prism">src/culturas/culturas.service.ts:70</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/culturas/culturas.service.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -468,8 +468,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="65"
-                                    class="link-to-prism">src/culturas/culturas.service.ts:65</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/culturas/culturas.service.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -535,8 +535,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="61"
-                                    class="link-to-prism">src/culturas/culturas.service.ts:61</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/culturas/culturas.service.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -602,7 +602,7 @@ export class CulturasService {
 
     @InjectRepository(Fazenda)
     private fazendaRepository: Repository&lt;Fazenda&gt;,
-  ) { }
+  ) {}
 
   async create(data: Partial&lt;Cultura&gt;) {
     const fazenda &#x3D; await this.fazendaRepository.findOne({
@@ -619,7 +619,7 @@ export class CulturasService {
     });
 
     const areaOcupadaNaSafra &#x3D; culturasExistentes
-      .filter(c &#x3D;&gt; c.fazendaId &#x3D;&#x3D;&#x3D; data.fazendaId &amp;&amp; c.safra &#x3D;&#x3D;&#x3D; data.safra)
+      .filter((c) &#x3D;&gt; c.fazendaId &#x3D;&#x3D;&#x3D; data.fazendaId &amp;&amp; c.safra &#x3D;&#x3D;&#x3D; data.safra)
       .reduce((total, c) &#x3D;&gt; total + c.area, 0);
 
     if (typeof data.area !&#x3D;&#x3D; &#x27;number&#x27;) {
@@ -645,7 +645,9 @@ export class CulturasService {
   }
 
   findByFazendaId(fazendaId: string) {
-    return this.culturaRepository.find({ where: { fazenda: { id: fazendaId } } });
+    return this.culturaRepository.find({
+      where: { fazenda: { id: fazendaId } },
+    });
   }
 
   update(data: Partial&lt;Cultura&gt;) {
@@ -665,7 +667,6 @@ export class CulturasService {
       .groupBy(&#x27;cultura.rubro&#x27;)
       .getRawMany();
   }
-
 }
 </code></pre>
     </div>

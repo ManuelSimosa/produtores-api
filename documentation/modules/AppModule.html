@@ -244,7 +244,7 @@ import { ConfigModule } from &#x27;@nestjs/config&#x27;;
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: &#x27;postgres&#x27;,
-      host: process.env.DB_HOST,
+      host: process.env.DB_HOST || &#x27;localhost&#x27;,
       port: parseInt(process.env.DB_PORT ?? &#x27;5432&#x27;, 10),
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
@@ -258,7 +258,6 @@ import { ConfigModule } from &#x27;@nestjs/config&#x27;;
   ],
 })
 export class AppModule {}
-
 </code></pre>
     </div>
 </div>

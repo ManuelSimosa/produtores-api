@@ -1,95 +1,76 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="_blank"><img src="https://nestjs.com/img/logo-small.svg" width="100" alt="NestJS Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+<h1 align="center">🧑‍🌾 Produtores API</h1>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  API RESTful construída com <a href="https://nestjs.com/" target="_blank">NestJS</a>, <a href="https://typeorm.io/" target="_blank">TypeORM</a> e <a href="https://www.postgresql.org/" target="_blank">PostgreSQL</a> para gerenciamento de produtores rurais, fazendas e culturas agrícolas.
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<p align="center">
+  <a href="https://www.npmjs.com/package/@nestjs/core"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/package/@nestjs/core"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="License" /></a>
+  <a href="https://www.npmjs.com/package/@nestjs/common"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="Downloads" /></a>
+  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social" alt="Follow Nest" /></a>
+</p>
 
-# 🧑‍🌾 Produtores API
-
-API RESTful construída com [NestJS](https://nestjs.com/) + [TypeORM](https://typeorm.io/) + PostgreSQL para gerenciar produtores rurais, suas fazendas e culturas agrícolas.
+---
 
 ## 📦 Funcionalidades
-- Permitir o cadastro, edição e exclusão de produtores rurais.
-- Validar o CPF ou CNPJ fornecido pelo usuário.
-- Garantir que a soma das áreas agricultável e de vegetação não ultrapasse a área total da fazenda.
-- Permitir o registro de várias culturas plantadas por fazenda do produtor.
-- Um produtor pode estar associado a 0, 1 ou mais propriedades rurais.
-- Uma propriedade rural pode ter 0, 1 ou mais culturas plantadas por safra.
 
-- Exibir um dashboard com:
-  - Total de fazendas cadastradas (quantidade).
-  - Total de hectares registrados (área total).
-  - Gráficos de pizza:
-    - Por estado.
-    - Por cultura plantada.
-    - Por uso do solo (área agricultável e vegetação).
+- Cadastro, edição e exclusão de **produtores rurais**.
+- Validação automática de **CPF** e **CNPJ**.
+- Controle de áreas:
+  - A soma das áreas agricultável e de vegetação **não pode exceder** a área total da fazenda.
+- Registro de **múltiplas culturas** por fazenda.
+- Relacionamento:
+  - Um produtor pode ter várias fazendas.
+  - Uma fazenda pode ter várias culturas por safra.
 
-- Documentação gráfica: http://localhost:8080/index.html
+### 📊 Dashboard
 
-## Project setup
+- Total de fazendas cadastradas.
+- Total de hectares registrados.
+- Gráficos de pizza por:
+  - Estado.
+  - Cultura plantada.
+  - Uso do solo (agricultável e vegetação).
 
-```bash
-$ yarn install
-```
+---
 
-## Compile and run the project
+## 🚀 Executando o Projeto Localmente
 
-```bash
-# development
-$ yarn run start
+### Pré-requisitos
 
-# watch mode
-$ yarn run start:dev
+- [Node.js](https://nodejs.org/) v20+
+- [Yarn](https://yarnpkg.com/)
+- [Docker](https://www.docker.com/)
 
-# production mode
-$ yarn run start:prod
-```
-
-## Run tests
+### Instalação
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+yarn install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+### Subir com Docker
 ```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
+docker compose up --build
+```
+A aplicação será acessível em:
+- API: http://localhost:3000
+- Documentação Swagger: http://localhost:3000/api
+- Documentação técnica (Compodoc): http://localhost:8080
+
+##  Rodando Testes
+```bash
+# Testes unitários
+yarn test
+
+# Testes de integração
+yarn test:e2e
+
+# Cobertura
+yarn test:cov
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
