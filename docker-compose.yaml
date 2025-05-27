@@ -1,49 +1,36 @@
 version: '3.9'
 
 services:
-  postgres:
+  db:
     image: postgres:15
-    container_name: postgres_db
     environment:
-      POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
+      POSTGRES_DB: postgres
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
 
-  microservice:
+  api:
     build: .
-    container_name: nest_app
-    ports:
-      - "3000:3000"
     depends_on:
-      - postgres
-    environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_USERNAME=postgres
-      - DB_PASSWORD=password
-      - DB_NAME=postgres
-
-  swagger:
-    image: swaggerapi/swagger-ui
-    container_name: swagger_ui
+      - db
     ports:
-      - "8080:8080"
+      - '3000:3000'
     environment:
-      SWAGGER_JSON_URL: http://localhost:3000/api-json
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
+      DATABASE_NAME: postgres
 
-  compodoc:
-    image: node:18
-    container_name: compodoc_doc
-    working_dir: /app
-    volumes:
-      - .:/app
-    command: sh -c "npm install -g @compodoc/compodoc && compodoc -p tsconfig.json -s -d docs -n 'Documentação API'"
+  docs:
+    build:
+      context: .
+      dockerfile: Dockerfile.compodoc
     ports:
-      - "8081:8080"
+      - '8080:8080'
 
 volumes:
-  pgdata:
+  db_data:
